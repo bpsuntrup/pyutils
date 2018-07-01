@@ -45,4 +45,32 @@ echo('coroutines rock', grep('rock', writeln))
 # coroutines rock
 '''
     
+class Switch(object):
+    def __init__(self):
+        self.cases = {}
+    def case(self, name):
+        def decorator(func):
+            def wrapper(*args, **kwargs):
+                return func(*args, **kwargs)
+            self.cases[name] = func
+        return decorator
+    def print_dict(self):
+        print self.cases
+    def __call__(self, case, *args, **kwargs):
+        return self.cases[case](*args, **kwargs)
+    
+'''
+switch = Switch()
+
+@switch.case('h')
+def hello():
+  print 'hello there'
+
+@switch.case('b')
+def byebye():
+  print 'bye, now!'
+
+switch('h')
+switch('b')
+'''        
 
