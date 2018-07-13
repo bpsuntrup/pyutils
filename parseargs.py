@@ -1,3 +1,11 @@
+'''
+pass a dictionary of single letter switches to multi-letter switch names.
+This parses arguments
+Right now it doesn't validate arguments belong to any specific set
+right now it doesn't do anything
+I'm just bored
+'''
+
 import sys
 
 print(sys.argv)
@@ -83,19 +91,5 @@ def parseargs(switch_dict):
 if __name__ == '__main__':
   print parseargs(switch_dict)
 
-
-
-# try python a.py hi there i am -ag --day hi again and again -ag hi there
-
-
-
-
-
-
-
-
-
-
-
-
+# try python parseargs.py hi there i am -ag --day hi again and again -ag hi there
 
