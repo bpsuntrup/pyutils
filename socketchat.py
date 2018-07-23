@@ -5,12 +5,9 @@ followed by response by server terminated by the same.
 """
 
 import socket
-import os
 import threading
 from threading import Thread
 import time
-
-global_lock = threading.Lock()
 
 chatdict = {
   'Hello, server.': 'Hello, client!',
