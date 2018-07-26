@@ -1,6 +1,10 @@
 #!/usr/bin/python
 '''I'm bored. This is a venture into curses programming. Why
 not?
+
+To run, simply `python curses_snake.py`
+
+Don't work, open an issue.
 '''
 import curses
 import time
@@ -34,7 +38,7 @@ try:
   time.sleep(2)
   win.addstr(4,20,'GO', curses.color_pair(2))
   win.refresh()
-  
+
   #### Now the game begins ###
   y = 6
   x = 3
@@ -58,7 +62,7 @@ try:
     for _y, _x in snake_body:
       win.addstr(_y,_x,' ', curses.color_pair(0))
     win.refresh()
-      
+
     if (y,x) in snake_body or (y,x) in BOUNDARY:
       win.addstr(4,20,'SCORE: {}'.format(score), curses.color_pair(1))
       win.refresh()
@@ -87,7 +91,7 @@ try:
     win.addstr(coord[0], coord[1], ' ', curses.color_pair(6))
   win.addstr(0,2,str(score), curses.color_pair(6))
   win.refresh()
- 
+
   while True:
     # Expecting an arrow key
     # Note that arrow keys are 3 bytes:

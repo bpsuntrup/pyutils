@@ -1,6 +1,6 @@
 import itertools
 
-def big_bite(i, n=2):
+def bite(i, n=2):
     ''' Takes iterator i and bite size (defaults to 2), and returns iterator
     returning "bite"-sized tuples of items from iterator. Iterator i can be
     infinite. Returns tuple stuffed with Nones if iterator size is not divisible
@@ -20,8 +20,8 @@ def big_bite(i, n=2):
                     break
         yield tuple(items)
 
-def test_big_bite():
-    i = big_bite(iter([1,2]))
+def test_bite():
+    i = bite(iter([1,2]))
     print("Does it chunk?")
     assert(next(i) == (1,2))
     throws = False
@@ -33,4 +33,4 @@ def test_big_bite():
     assert(throws)
 
 if __name__ == '__main__':
-    test_big_bite()
+    test_bite()

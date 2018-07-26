@@ -1,7 +1,7 @@
 ''' prioritizer.py
 takes a list of tasks and aids in prioritization of tasks. '''
 import itertools
-from big_bite import big_bite
+from bite import bite
 
 # Please make this even for now
 tasks = [
@@ -43,7 +43,7 @@ while len(best(tasks).items()) > 1:
     if dangling_task is not None:
         i = itertools.chain(i, [dangling_task,])
         dangling_task = None
-    for task1, task2 in big_bite(i):
+    for task1, task2 in bite(i):
         if task2 is None:
             dangling_task = task1
             break
