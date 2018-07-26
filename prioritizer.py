@@ -76,7 +76,9 @@ def prioritize(tasks):
                 print('you chose: {}'.format(task2))
                 tasks[task2] = max(tasks[task1] + 1, tasks[task2])
             else:
-                print best((tasks))
+                best_task = best(tasks)
+                print ( 'Results: {}'.format(best_task))
+                print ('You should \"{}\"'.format(best_task.keys()[0]))
                 exit(0)
 
     best_task = best(tasks)
