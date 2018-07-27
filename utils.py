@@ -44,7 +44,7 @@ echo('coroutines rock', grep('rock', writeln))
 # output:
 # coroutines rock
 '''
-    
+
 class Switch(object):
     def __init__(self):
         self.cases = {}
@@ -58,7 +58,7 @@ class Switch(object):
         print self.cases
     def __call__(self, case, *args, **kwargs):
         return self.cases[case](*args, **kwargs)
-    
+
 '''
 switch = Switch()
 
@@ -72,5 +72,10 @@ def byebye():
 
 switch('h')
 switch('b')
-'''        
+'''
 
+def apply(f, *args):
+    return f(*args)
+
+def index(a, i):
+    return a[i]
