@@ -21,42 +21,28 @@ class NCurses(object):
         curses.nocbreak(); self.stdscr.keypad(0); curses.echo()
         curses.endwin()
 
-
-class File():
-
-    def __init__(self, filename, mode):
-        self.filename = filename
-        self.mode = mode
-
-    def __enter__(self):
-        self.open_file = open(self.filename, self.mode)
-        return self.open_file
-
-    def __exit__(self, *args):
-        self.open_file.close()
-
 if __name__ == "__main__":
     import time
     with NCurses() as nc:
         # Pick colors I like:
-        curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)
-        curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
-        curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_WHITE)
-        curses.init_pair(4, curses.COLOR_BLUE, curses.COLOR_BLUE)
-        curses.init_pair(5, curses.COLOR_GREEN, curses.COLOR_BLACK)
-        curses.init_pair(6, curses.COLOR_BLACK, curses.COLOR_WHITE)
+        nc.init_pair(1, nc.COLOR_RED, nc.COLOR_WHITE)
+        nc.init_pair(2, nc.COLOR_WHITE, nc.COLOR_RED)
+        nc.init_pair(3, nc.COLOR_BLUE, nc.COLOR_WHITE)
+        nc.init_pair(4, nc.COLOR_BLUE, nc.COLOR_BLUE)
+        nc.init_pair(5, nc.COLOR_GREEN, nc.COLOR_BLACK)
+        nc.init_pair(6, nc.COLOR_BLACK, nc.COLOR_WHITE)
 
         # Draw a new window... I guess
         x = 0
         y = 0
         height = 40
         width = 40
-        win = curses.newwin(height, width, y, x)
+        win = nc.newwin(height, width, y, x)
         win.timeout(200)
-        win.addstr(2, 20, 'READY', curses.color_pair(3))
+        win.addstr(2, 20, 'READY', nc.color_pair(3))
         win.refresh()
         time.sleep(2)
-        win.addstr(4,20,'GO', curses.color_pair(2))
+        win.addstr(4,20,'GO', nc.color_pair(2))
         win.refresh()
 
         
